@@ -1,6 +1,5 @@
 # demo-gcm
 
-
 This repository contains a demo of the Generative Correlation Manifolds (GCM) package in https://github.com/JdHondt/gcm.
 The purpose of the demo is to illustrate how to use the GCM package for the data generation based on a real-world dataset.
 The demo is implemented in a Jupyter Notebook file named `demo_gcm.ipynb`.
