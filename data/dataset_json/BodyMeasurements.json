@@ -1,0 +1,26 @@
+{
+  "name": "Body Measurements",
+  "description": "",
+  "path": "dataset-310405444.csv",
+  "mvc": [
+    [
+      "bii_di",
+      "ank_di",
+      "kne_gi"
+    ],[
+      "hip_gi", "wai_gi", "wgt"
+    ],[
+      "hgt", "kne_di", "sho_gi"
+    ],[
+      "bic_gi", "for_gi", "wri_gi"
+    ], [
+      "age", "wgt", "wai_gi"
+    ]
+
+  ],
+  "reg": {
+    "target":"wgt",
+    "features": ["hgt", "wai_gi", "hip_gi", "sho_gi", "sex", "age"]
+
+  }
+}

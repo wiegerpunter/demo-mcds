@@ -1,0 +1,22 @@
+{
+  "name": "Heart Sensors",
+  "description": "",
+  "path": "heart.xls",
+  "mvc": [
+    [
+      "age", "chol","trestbps"
+    ],[
+      "thalach", "age", "exang"
+    ],[
+      "oldpeak", "slope", "exang"
+    ],[
+      "ca", "thal", "target"
+    ]
+  ],
+  "reg": {
+    "target":"target",
+    "features": [
+      "age", "sex", "trestbps", "chol", "exang", "oldpeak", "slope", "ca", "thal", "thalach"
+    ]
+  }
+}
