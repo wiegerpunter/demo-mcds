@@ -35,7 +35,7 @@ After downloading, unzip the file to a directory of your choice.
 To run the demo, navigate to the directory of the jupyter notebook file and execute the following command in your terminal:
 
 ```bash
-jupyter notebook demo_gcm_clean.ipynb
+jupyter notebook demo_gcm.ipynb
 ```
 This will open the Jupyter Notebook interface in your web browser. Open the `demo_gcm.ipynb` file and follow the instructions in the notebook to run the demo.
 Make sure to adjust the file path in the notebook to point to the location where you unzipped the data file.
