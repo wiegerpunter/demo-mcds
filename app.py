@@ -20,11 +20,21 @@ def heatmap(df_train, df_synth):
     corr_real = np.corrcoef(df_train, rowvar=False)
     corr_synth = np.corrcoef(df_synth, rowvar=False)
     fig, axes = plt.subplots(1, 2, figsize=(24, 6))
-
+    # Font sizes
+    title_size = 24
+    label_size = 20
+    tick_size = 16
     sns.heatmap(corr_real, ax=axes[0], cmap="coolwarm", center=0, cbar=False)
-    axes[0].set_title("Original Correlation Matrix")
+    axes[0].set_title("Original Correlation Matrix", fontsize=title_size)
+    axes[0].set_ylabel("Features", fontsize=label_size)
+    axes[0].set_xlabel("Features", fontsize=label_size)
+    axes[0].tick_params(axis='both', labelsize=tick_size)
+
     sns.heatmap(corr_synth, ax=axes[1], cmap="coolwarm", center=0, cbar=False)
-    axes[1].set_title("Synthetic Correlation Matrix")
+    axes[1].set_title("Synthetic Correlation Matrix", fontsize=title_size)
+    axes[1].set_ylabel("Features", fontsize=label_size)
+    axes[1].set_xlabel("Features", fontsize=label_size)
+    axes[1].tick_params(axis='both', labelsize=tick_size)
     return fig
 
 
@@ -170,15 +180,30 @@ if "synth_df" in st.session_state and "train_df" in st.session_state:
             train_multipole = compute_multipole(st.session_state["train_df"], cols)
             synth_multipole = compute_multipole(st.session_state["synth_df"], cols)
 
-            st.subheader("Train Multipoles")
-            st.write(train_multipole)
+            # Font size for tables
+            font_size = 28
 
-            st.subheader("Synthetic Multipoles")
-            st.write(synth_multipole)
 
-            st.subheader("Difference (Synthetic - Train)")
-            try:
-                diff = synth_multipole - train_multipole
-                st.write(diff)
-            except:
-                st.info("Cannot compute numeric differences for these multipole outputs.")
+            # Helper: show a styled value as a table
+            def styled_table(label_train, value_train, label_synth=None, value_synth=None):
+                html = f"""
+                <div style="font-size: {font_size}px; padding: 10px 0;">
+                    <table>
+                        <tr><th style="text-align:left; padding-right:20px;">{label_train}</th>
+                            <td>{value_train}</td></tr>
+                        <tr><th style="text-align:left; padding-right:20px;">{label_synth}</th>
+                        <td>{value_synth}</td></tr>
+                        <tr><th style="text-align:left; padding-right:20px;">Difference</th>
+                        <td>{round(value_train - value_synth, 3)}</td></tr>
+                    </table>
+                </div>
+                """
+                st.markdown(html, unsafe_allow_html=True)
+
+
+            # Compute values
+            train_val = round(train_multipole, 3)
+            synth_val = round(synth_multipole, 3)
+
+            st.subheader("Multipole Comparison")
+            styled_table("Train Multipole", train_val, "Synthetic Multipole", synth_val)
