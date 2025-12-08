@@ -31,6 +31,8 @@ You can download the demo data from the following link: [All lending club loan d
 In the demo, the 'accepted_2007_to_2018Q4.csv' file is used.
 After downloading, unzip the file to a directory of your choice.
 
+Other datasets that can be used are the Body Measurements dataset: https://www.kaggle.com/datasets/utkarshx27/body-measurements and the Heart Disease dataset https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset.
+
 ## Run the demo
 To run the demo, navigate to the directory of the jupyter notebook file and execute the following command in your terminal:
 
