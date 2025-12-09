@@ -20,15 +20,11 @@
     ]
   ],
   "reg": {
-    "target": "total_acc",
+    "target": "interest_rate",
     "features": [
-      "open_acc",
-      "total_rec_int",
-      "acc_open_past_24mths",
       "mo_sin_rcnt_tl",
-      "num_bc_tl",
-      "num_il_tl",
-      "num_op_rev_tl"
+      "delinquencies_2yrs",
+      "annual_income"
     ]
   }
 }
